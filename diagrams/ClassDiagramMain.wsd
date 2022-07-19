@@ -1,10 +1,24 @@
 @startuml
 
-class GamesPlatform {}
-abstract class Game {}
+class GamesPlatform {
+    +ArrayList<Player> ListOfPlayers
+    +ShowStatistics()
+    +TypeGame()
+}
+abstract class Game {
+
+    +NumberOfPlayers
+    {abstract}Introduction()
+    +Resume()
+    {abstract}Execute()
+    {abstract}AssignRoles()
+    +SelectPlayers()
+}
 class TicTacToe {}
 class HangMan {}
-abstract class Player {}
+abstract class Player {
+
+}
 class Bot {}
 class Human {}
 
@@ -13,7 +27,7 @@ GamesPlatform *-- "2" Game
 
 Game <|-- TicTacToe
 Game <|-- HangMan
-
+Game o--Player
 Player <|-- Bot
 Player <|-- Human
 

@@ -1,0 +1,26 @@
+@startuml
+
+class HangMan
+class Player
+class SecretWord
+class TurnHangMan
+class HangedMan
+class Dice
+
+interface WordGiver
+interface WordGuesser
+interface HangManPlayer
+
+HangMan o-- Player
+HangMan -->TurnHangMan
+TurnHangMan*-- SecretWord
+TurnHangMan*-- HangedMan
+
+Player <|..HangManPlayer
+HangManPlayer<|-- WordGuesser
+HangManPlayer<|-- WordGiver
+TurnHangMan --* Player
+
+
+TurnHangMan ..>Dice
+@enduml
